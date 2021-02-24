@@ -6,7 +6,7 @@ var db = require('../dbconn');
 router.get('/:tablename/year/:year', function(req, res) {
   var tablename = req.params.tablename
   var year = req.params.year
-  let sql = `SELECT val` + year + ` FROM ` + tablename + `;`;
+  let sql = `SELECT coord,val` + year + `as val FROM ` + tablename + `;`;
   db.query(sql, function(err, data, fields) {
     if (err) {
       db.release();  
